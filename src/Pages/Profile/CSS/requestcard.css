@@ -1,0 +1,11 @@
+.request-card {
+  background-color: whitesmoke;
+  height: 24rem;
+  width: 19rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.request-info img{
+  height: 15rem;
+}

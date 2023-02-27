@@ -1,0 +1,132 @@
+.splashpage {
+  min-height: 100%;
+  padding-bottom: 15.2rem;
+}
+
+.splashpage.splashcontent-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  clear: both;
+}
+
+.splashpage.logincontent {
+  display: flex;
+  position: relative;
+  width: 150rem;
+  height: 873px;
+  max-height: 1080px;
+  padding: 0;
+  margin-bottom: 50px;
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
+}
+
+.splashpage.login-header {
+  position: absolute;
+  width: 750px;
+  height: 873px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-header {
+  margin-top: 90px;
+  color: white;
+  font-size: 100px;
+}
+
+#signup-header {
+  margin-top: 90px;
+  color: white;
+  font-size: 100px;
+}
+
+.splashpage.loginform-image {
+  width: 50%;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.splashpage.loginform-image__container {
+  width: 750px;
+  height: 873px;
+  overflow: hidden;
+  opacity: .08;
+}
+
+.splashpage.loginform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+.splashlogin-form {
+  display: block;
+}
+
+.login-form__hidden {
+  display: block;
+  visibility: hidden;
+}
+
+.signup-display {
+  animation-name: openSignUp;
+  animation-duration: .8s;
+  visibility: visible;
+  transition: visibility 0s;
+  margin-bottom: 10px;
+}
+
+.signup-display__hidden {
+  visibility: hidden;
+  animation-name: closeSignUp;
+  animation-duration: .8s;
+}
+
+.splashpage.authforms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 750px;
+  height: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#authforms-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes openSignUp {
+
+  0%{
+    opacity: 0;
+    transform: translate(2rem);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0rem);
+  }
+}
+@keyframes closeSignUp {
+
+  0%{
+    opacity: 1;
+    transform: translate(0rem);
+  }
+
+  100%{
+    opacity: 0;
+    transform: translate(2rem);
+  }
+}

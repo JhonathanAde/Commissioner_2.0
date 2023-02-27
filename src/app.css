@@ -1,0 +1,40 @@
+body {
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: contain;
+}
+
+.app {
+  position: relative;
+}
+
+.app-content {
+  overflow-y: hidden;
+}
+
+[data-page] {
+  position: relative;
+}
+
+.far.fa-star.fa-1x::before {
+  color: black;
+}
+
+.fas.fa-star.fa-1x::before {
+  color: gold;
+}
+
+.far.fa-star.fa-2x::before {
+  color: black;
+}
+
+.fas.fa-star.fa-2x::before {
+  color: gold;
+}
+
+/*# sourceMappingURL=app.css.map */

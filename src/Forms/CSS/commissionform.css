@@ -1,0 +1,296 @@
+:root{
+  --main_black: #000000;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  --main-window_width: 1486rem;
+  --main-window_height: 998px;
+  --login-input__width: 386px;
+  --login-input__height: 35px;
+  --login-label__fontsize: 36px;
+  --login-input__fontsize: 28px;
+  --settings-label__fontsize: 24px;
+  --settings-input__fontsize: 24px;
+  --settings-input__width: 750px;
+  --settings-input__height: 40px;
+}
+
+
+.commission-form.commission-errors {
+  color: crimson;
+  font-size: 40px;
+  width: 386px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#commission-form__error-list {
+  list-style: none;
+}
+
+/* -- Commission Form Title -- */
+
+.commission-form.commission-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-title__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#commission-title__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: 18px;
+  padding: 5px;
+}
+
+/* --------------------------- */
+
+
+/* -- Commission Form Description -- */
+
+.commission-form.commission-description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#description__headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 386px;
+}
+
+#commission-description__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#commission-description__textarea {
+  resize: none;
+  width: var(--login-input__width);
+  height: 150px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+/* --------------------------- */
+
+
+/* -- Commission Form Image -- */
+
+.commission-form.commission-image {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-image__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* #commission-image__input {
+  width: 300px;
+  height: var(--login-input__height);
+} */
+
+.commission-form.commission-image button {
+  font-size: 20px;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.commission-form.commission-image button:hover {
+  background-color: var(--icon-pink);
+}
+
+.commission-form.commission-image input[type="file"]::file-selector-button {
+  font-size: 20px;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.commission-form.commission-image input[type="file"]::file-selector-button:hover {
+  background-color: var(--icon-pink);
+}
+
+#commission-image__input {
+  font-size: 18px;
+  width: 310px;
+}
+
+
+/* --------------------------- */
+
+
+/* -- Commission Form Price -- */
+
+.commission-form.commission-price {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-price__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#commission-price__input {
+  width: fit-content;
+  height: var(--login-input__height);
+  font-size: 18px;
+  padding: 5px;
+}
+
+/* --------------------------- */
+
+
+
+/* -- Commission Form Requests -- */
+
+.commission-form.commission-requests-cap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-request_cap__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#commission-request_cap__input {
+  width: fit-content;
+  height: var(--login-input__height);
+  font-size: 18px;
+  padding: 5px;
+}
+
+#commission-request_cap__info {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* --------------------------- */
+
+
+/* -- Commission Form Duration -- */
+
+.commission-form.commission-duration {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-duration__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#commission-duration__info {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#commission-duration__choices {
+  margin-bottom: 10px;
+}
+
+#commission-duration__choices input {
+  margin-right: 10px;
+}
+
+#duration-yes__label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#duration-no__label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#commission-duration__date {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-duration__date__label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#commission-duration__date__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: 18px;
+}
+
+/* --------------------------- */
+
+
+/* -- Commission Form Buttons -- */
+
+.commission-form.commission-buttons button {
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.commission-form.commission-buttons input {
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#commission-buttons__submit:hover {
+  background-color: var(--icon-pink);
+}
+
+#commission-buttons__reset:hover {
+  background-color: var(--icon-pink);
+}
+
+/* --------------------------- */

@@ -1,0 +1,293 @@
+:root{
+  --main_black: #000000;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  --main-window_width: 1500rem;
+  --main-window_height: 998rem;
+}
+
+.artpage-window {
+  position: relative;
+  margin-bottom: 60px;
+  height: auto;
+}
+
+.artpage {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+
+.artpage.art-content {
+  width: 1492px;
+  height: 745px;
+}
+
+.artpage.art-content__product-display {
+  display: flex;
+  align-items: center;
+  background-color: var(--card-grey);
+  width: 741px;
+  height: 741px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.artpage.art-content__product-displaywindow {
+  overflow: hidden;
+  width: 676px;
+  height: 676px;
+  margin: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.artpage.art-content__product-displaywindow img {
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
+}
+
+.artpage.art-content__product-details {
+  width: 1492px;
+  height: auto;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.artpage.art-content__product-details h6 {
+  font-size: 76px;
+  margin-bottom: 5px;
+}
+
+#artwork-by__section {
+  display: flex;
+  flex-direction: row;
+}
+
+#artwork-by {
+  margin-right: 10px;
+}
+
+#artwork-by__section a {
+  font-size: 36px;
+}
+
+#artwork-by__section a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--icon-pink)
+}
+
+#artwork-price {
+  margin-bottom: 10px;
+}
+
+
+
+#artwork-rating {
+  margin-bottom: 35px;;
+}
+
+#artwork-rating i {
+  font-size: 25px;
+  color: var(--highlight);
+}
+
+.artpage.art-content__product-details h3{
+  font-size: 36px;
+  font-weight:600;
+  margin-bottom: 5px;
+}
+
+.artpage.art-content__product-details h1 {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.artpage.art-content__description-divider {
+  background-color: var(--card-grey);
+  height: 5px;
+  width: 722px;
+  margin: 5px 0;
+}
+
+.artpage.art-content__product-details p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.artpage.art-content__product-details button {
+  font-size: 36px;
+  color: white;
+  width: 265px;
+  height: 58px;
+  outline: none;
+  background: none;
+  border: none;
+  background-color: var(--main_black);
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.artpage.art-content__product-details button:hover {
+  background-color: var(--icon-pink);
+}
+
+.artpage.art-details {
+  position: relative; 
+  width: 1492px;
+  height: auto;
+  margin-top: 30px;
+}
+
+.artpage.art-details__reviews {
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 741px;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.artpage.art-details__reviews form {
+  width: 720px;
+}
+
+.artpage.art-details__reviews h1 {
+  font-size: 36px;
+  margin-bottom: 5px;
+
+}
+
+.artpage.artpage.art-details__reviews textarea {
+  width: 685px;
+  height: 310px;
+  resize: none;
+  margin-bottom: 5px;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.artpage.art-details__reviewform-submit {
+  width: 685px;
+  justify-content: space-between;
+}
+
+.artpage.art-details__reviewform-submit i {
+ font-size: 35px;
+ color: var(--highlight);
+}
+
+
+
+.artpage.art-details__reviews button {
+  color: white;
+  width: 200px;
+  height: 57px;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  background: none;
+  background-color: var(--main_black);
+  cursor: pointer;
+}
+
+.artpage.art-details__reviews button:hover {
+  background-color: var(--icon-pink);
+}
+
+.artpage.art-details__reviews-list{
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.artpage.art-details__aboutartist {
+  justify-content: flex-start;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 498px;
+  width: 748px;
+  background-color: var(--card-grey);
+  padding: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.artpage.art-details__aboutartist-img__container {
+ width: 174px;
+ margin-right: 10px;
+}
+
+#aboutimg__container {
+  width: 174px;
+  height: 174px;
+  background-color: var(--icon-pink);
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+}
+
+#aboutimg__container-image {
+  width: 158px;
+  height: 158px;
+  border-radius: 200px;
+  overflow: hidden;
+}
+
+#aboutimg__container-image img {
+  width: 160px;
+}
+
+.artpage.art-details__aboutartist-artist {
+  display: flex;
+  justify-content: flex-start;
+  width: 457px;
+}
+
+#about_artist-title {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+#artist__username {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+#artist__bio {
+  font-size: 18px;
+  width: 500px;
+  margin-bottom: 20px;
+}
+
+.artpage.art-details__other-works{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 55px;
+  margin-bottom: 20px;
+}
+
+#otherworks-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.artpage.art-details__other-works__display {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 748px;
+  padding: 5px;
+}

@@ -1,0 +1,7 @@
+ .basicinfo-card {
+  display: block;
+  background-color: lightslategray;
+  width: 35rem;
+  height: 47rem;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.8);
+}

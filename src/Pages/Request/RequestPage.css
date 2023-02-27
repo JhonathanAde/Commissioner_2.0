@@ -1,0 +1,25 @@
+
+.request-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  clear: right;
+  background-color: tomato;
+}
+
+.request-page.request-display {
+  display: block;
+  background-color: whitesmoke;
+  width: 150rem;
+  height: 200rem;
+}
+
+.carousel-container {
+  width: 500px;
+  margin: auto;
+  border: solid 5px ;
+}
+
+.carousel-slider {
+  display: flex;
+}
