@@ -113,29 +113,15 @@ const NavBar = (
 
 
   useEffect(() => {
-    const mockInfo = async () => {
-      let data = await fetch("https://jsonplaceholder.typicode.com/users");
-      data.json().then(json => {
-        // console.log(json);
-        setMockData(json);
-      })
-    }
 
     const userInfo = async () => {
       const data = await fetch("/api/users/getuser");
-      data.json().then(json => {
-        setUserData(json);
-        // console.log("user data",json);
-        return
-      })
+      const response = await data.json()
+      setUserData(response.data);
     }
 
-    mockInfo();
     userInfo();
 
-    // console.log(results);
-
-    // console.log(mockData);
   }, [results]);
 
 

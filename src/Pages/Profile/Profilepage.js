@@ -19,6 +19,7 @@ const Profilepage = ({authenticated, user}) => {
   const [commissions, setCommissions] = useState([]);
   const [isComm, setComm] = useState(true);
   const [isGallery, setGallery] = useState(false);
+  const [isReq, setReq] = useState(false);
   const [isSettings, setSettings] = useState(false);
   const [isBasicInfo, setBasicInfo] = useState(true);
   const [isSecurity, setSecurity] = useState(false);
@@ -29,6 +30,7 @@ const Profilepage = ({authenticated, user}) => {
   const [bio, setBio] = useState(user.bio);
   const [occupation, setOcc] = useState(user.occupation);
   const [currentPic, setPic] = useState(user.profile_pic);
+  const [requests, setRequests ] = useState([]);
   const [errors, setErrors] = useState([]);
   const [nameVisible, setNameVisible] = useState(user.show_name);
   const [isLoading, setLoading] = useState(true);
@@ -145,6 +147,7 @@ const Profilepage = ({authenticated, user}) => {
     
   }
 
+
   checkUser();
 
 
@@ -175,17 +178,27 @@ const Profilepage = ({authenticated, user}) => {
         setCommissions(json.commissions);
       }
 
+      const getRequests = async (id) => {
+        const data = await fetch(`/api/requests/${id}/request`);
+        const response = await data.json();
+        console.log(response.requests);
+
+        setRequests(response.requests);
+      }
+
       // const showFullName = () => {
       
       // }
 
 
       getComms(currentId);
+      getRequests(currentId);
       getArtistInfo(currentId);
     
   }, [current, currentId, isSettings, firstName, lastName, website, bio, nameVisible, artistId, isLoading]);
 
 
+  console.log(artistInfo);
   // console.log(info);
   // console.log(typeof info.userId);
   
@@ -196,7 +209,11 @@ const Profilepage = ({authenticated, user}) => {
 
         <>
         <div className='profilepage-user-main' data-page>
-          <div className='profilepage-user-banner'>
+          <div className='profilepage-user-banner' style={{
+              backgroundImage: `url("${artistInfo.banner}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}>
             <button 
               id="settings-button"
               onClick={() => {
@@ -238,33 +255,59 @@ const Profilepage = ({authenticated, user}) => {
                 <div className='user-body-right'>
                   <div className='user-action-bar'>
                     <button className={!isComm ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
-                      if(isGallery){
+                      if(isGallery || isReq){
                         setGallery(false);
+                        setReq(false);
                         setComm(true);
                       }
                     }}>Commissions</button>
-                    <button className={!isGallery ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
+                    {/* <button className={!isGallery ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
                       if(isComm){
                         setComm(false);
                         setGallery(true);
                       }
-                    }}>Gallery</button>
+                    }}>Gallery</button> */}
+                    <button className={!isReq ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
+                      if(isComm || isGallery){
+                        setComm(false);
+                        setGallery(false);
+                        setReq(true);
+                      }
+                    }}>Requests</button>
                   </div>
                   <div className='actionbar-display'>
-                    {!isLoading ? 
-                    
+                    {!isLoading && isComm ?
+                  
+                      <>
+                        {commissions && commissions.map((com, key) => {
+                          let {id, title, image_url, user, price} = com
+
+                          return(
+                            <div key={key} className="animate wipe-up">
+                              <ProfileCommCards id={id} title={title} image={image_url} user={user} price={price}/>
+                            </div>
+                          )
+                      })}
+                      </>
+
+                    :!isLoading && isReq ?
+
                     <>
-                      {commissions && commissions.map((com, key) => {
-                        let {id, title, image_url, user, price} = com
-
-                        return(
-                          <div key={key} className="animate wipe-up">
-                            <ProfileCommCards id={id} title={title} image={image_url} user={user} price={price}/>
-                          </div>
-                        )
-                    })}
+                      {requests && requests.map((req, key) => {
+                            return(
+                              <>
+                               <h1>hello world</h1>
+                              </>
+                            )
+                          })}
+                      
+                      {requests.length === 0 && 
+                        <div className='noreq-msg'>
+                          <h1>No requests are available.</h1>
+                        </div>
+                      
+                      }
                     </>
-
                     :
                     <div className='loading-container'>
                       <Loader />
@@ -361,7 +404,13 @@ const Profilepage = ({authenticated, user}) => {
 
       { current === "visitor" &&
         <div className='profilepage-visitor-main' data-page>
-          <div className='profilepage-visitor-banner'></div>
+          <div className='profilepage-visitor-banner' 
+            style={{
+              backgroundImage: `url("${artistInfo.banner}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
           
           <div className='profilepage-visitor-content'>
               <div className='profilepage-visitor-artistcard'>

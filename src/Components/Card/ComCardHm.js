@@ -77,33 +77,57 @@ const ComCardHm = ({com}) => {
   return (
     <>
       <div className='art-display-card animate wipe-up'>
-        <div 
-          className='display-card-photo' 
-          onMouseOver={() => {setOverlay(true)}}
-          onMouseLeave={() => { setOverlay(false);}}
-          >
-            {!isLoading ? 
 
-            <>
-          <NavLink to={`/product/${id}`}>
-              <picture className="animate reveal">
-                <img src={image_url}/>
-              </picture>
-          </NavLink>
-              <div className={!isOverlay ? 'display-card-overlay' : 'display-card-overlay active'}></div>
-              <h1 className={!isOverlay ? 'display-card-title' : 'display-card-title active'}>
-              <NavLink to={`/product/${id}`}>{title}</NavLink>
-              </h1>
-            </>
+        {!isLoading ? 
+          <div 
+            className='display-card-photo animate reveal' 
+            onMouseOver={() => {setOverlay(true)}}
+            onMouseLeave={() => { setOverlay(false);}}
+            >
+            <NavLink to={`/product/${id}`}>
+             <div className="card-photo"
+              style={{
+              backgroundImage: `url("${image_url}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
+             ></div> 
+            </NavLink>
 
-              :
+            
 
+              <>
+                <div className={!isOverlay ? 'display-card-overlay' : 'display-card-overlay active'}></div>
+                <h1 className={!isOverlay ? 'display-card-title' : 'display-card-title active'}>
+                <NavLink to={`/product/${id}`}>{title}</NavLink>
+                </h1>
+              </>
+              </div>
+
+            
+
+          :
+
+           <div 
+            className='display-card-photo' 
+            onMouseOver={() => {setOverlay(true)}}
+            onMouseLeave={() => { setOverlay(false);}}
+            >
               <div className="loading-container">
                 <Loader />
               </div>
-            }
 
-        </div>
+              <>
+                <div className={!isOverlay ? 'display-card-overlay' : 'display-card-overlay active'}></div>
+                <h1 className={!isOverlay ? 'display-card-title' : 'display-card-title active'}>
+                <NavLink to={`/product/${id}`}>{title}</NavLink>
+                </h1>
+              </>
+
+              </div>
+            }
+            
+
         <div className='display-card-info'>
           <div id="display-card__artistname" data-displaycard-info>
             <div id="display-card__userimg">

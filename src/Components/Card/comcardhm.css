@@ -5,6 +5,10 @@
   width: 38rem;
   height: 32rem;
 }
+.art-display-card a {
+  color: black;
+  text-decoration: none;
+}
 
 .display-card-photo {
   overflow: hidden;
@@ -12,12 +16,17 @@
   grid-column: span 2;
   grid-row: span 11;
   width: 100%;
+  height: 28rem;
 }
 .display-card-photo picture {
   width: 100%;
 }
 .display-card-photo picture img {
   width: 100%;
+}
+.display-card-photo .card-photo {
+  width: 100%;
+  height: 100%;
 }
 .display-card-photo .display-card-title {
   position: absolute;

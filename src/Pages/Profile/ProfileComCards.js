@@ -12,6 +12,7 @@ const ProfileCommCards = ({comm, id, title, image, price, user}) => {
   const [reviewLength, setLength] = useState(0);
   const [isOverlay, setOverlay] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [isLandscape, setLandscape] = useState(false);
 
 
   useEffect(() => {
@@ -21,6 +22,9 @@ const ProfileCommCards = ({comm, id, title, image, price, user}) => {
       img.src = image;
 
       img.onload = (e) => {
+        if(img.width > img.height){
+          setLandscape(true);
+        }
         setLoading(false);
       }
     }
@@ -60,7 +64,9 @@ const ProfileCommCards = ({comm, id, title, image, price, user}) => {
   return (
     <>
       <div className="profile-comm-cards"> 
-          <div className='profile-comm-card-img'
+      {!isLoading ?
+      
+          <div className='profile-comm-card-img animate reveal'
             onMouseOver={() => {
               setOverlay(true);
             }}
@@ -68,25 +74,46 @@ const ProfileCommCards = ({comm, id, title, image, price, user}) => {
               setOverlay(false);
             }}
           >
-            {!isLoading ?
-              <>
-                <NavLink to="#">
-                  <picture className='animate reveal'>
-                    <img src={image} />
-                  </picture>
-                </NavLink>
+              <NavLink to={`/product/${id}`}>
+                <div
+                  className='procomcard-img'
+                  style={{
+                          backgroundImage: `url("${image}")`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                ></div>
+              </NavLink>
+  
+            
                 <div className={!isOverlay ? 'profile-comm-card-overlay' : 'profile-comm-card-overlay active'}></div>
                 <NavLink to={`/product/${id}`}>
                   <h1 className={!isOverlay ? 'profile-comm-card-title' : 'profile-comm-card-title active'}>{title}</h1>
                 </NavLink>
-              </>
 
+                </div>
+            
               :
+              <div className='profile-comm-card-img'
+            onMouseOver={() => {
+              setOverlay(true);
+            }}
+            onMouseLeave={() => {
+              setOverlay(false);
+            }}
+            >
+  
               <div className='loading-container-card'>
                 <Loader />
               </div>
+            
+                <div className={!isOverlay ? 'profile-comm-card-overlay' : 'profile-comm-card-overlay active'}></div>
+                <NavLink to={`/product/${id}`}>
+                  <h1 className={!isOverlay ? 'profile-comm-card-title' : 'profile-comm-card-title active'}>{title}</h1>
+                </NavLink>
+
+                </div>
             }
-          </div>
           <div className='profile-comm-card-info'>
             <div className='card-info-user'>
               <picture>
