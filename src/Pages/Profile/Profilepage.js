@@ -302,7 +302,7 @@ const Profilepage = ({authenticated, user}) => {
                           })}
                       
                       {requests.length === 0 && 
-                        <div className='noreq-msg'>
+                        <div className='noreq-msg animate wipe-up'>
                           <h1>No requests are available.</h1>
                         </div>
                       
@@ -439,28 +439,64 @@ const Profilepage = ({authenticated, user}) => {
                 <div className='visitor-body-left'></div>
                 <div className='visitor-body-right'>
                   <div className='visitor-action-bar'>
+
                     <button className={!isComm ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
-                      if(isGallery){
+                      if(isGallery || isReq){
                         setGallery(false);
+                        setReq(false);
                         setComm(true);
                       }}}>Commissions</button>
-                    <button className={!isGallery ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
+                    {/* <button className={!isGallery ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
                       if(isComm){
                         setComm(false);
                         setGallery(true);
                       }
-                    }}>Gallery</button>
+                    }}>Gallery</button> */}
+                    <button className={!isReq ? 'actionbar-btn' : 'actionbar-btn active'} onClick={() => {
+                      if(isComm || isGallery){
+                        setComm(false);
+                        setGallery(false);
+                        setReq(true);
+                      }
+                    }}>Request</button>
                   </div>
                   <div className='actionbar-display'>
-                    {commissions && commissions.map((com, key) => {
-                      let {id, title, image_url, user, price} = com
+                    {!isLoading && isComm ?
+                    
+                    <>
+                    
+                      {commissions && commissions.map((com, key) => {
+                        let {id, title, image_url, user, price} = com
 
-                      return(
-                        <div key={key}>
-                          <ProfileCommCards id={id} title={title} image={image_url} user={user} price={price}/>
+                        return(
+                          <div key={key} className="animate wipe-up">
+                            <ProfileCommCards id={id} title={title} image={image_url} user={user} price={price}/>
+                          </div>
+                        )
+                      })}
+                    </>
+
+                    :!isLoading && isReq ?
+
+                    <>
+                      {requests && requests.map((req, key) => {
+                            return(
+                              <>
+                              </>
+                            )
+                          })}
+                      
+                      {requests.length === 0 && 
+                        <div className='noreq-msg animate wipe-up'>
+                          <h1>No requests are available.</h1>
                         </div>
-                      )
-                  })}
+                      }
+                    </>
+                    :
+                    <div className='loading-container'>
+                      <Loader />
+                    </div>
+                  }
                   </div>
                 </div>
               </div>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createCommission, uploadCommissionImage } from '../services/commission';
 import './createcommission.css';
 
+import placeHolder from './../Logo/img_placeholder.png'
 
 
 const CreateCommissionPage = ({authenticated, user}) => {
@@ -134,24 +135,30 @@ const CreateCommissionPage = ({authenticated, user}) => {
         <div className='create-commission_title'>
           <h1>Create a Commission</h1>
         </div>
-        <div className="create-commission_data">
+        <div className="create-commission_data animate wipe-up">
 
           <div className='create-commission_img-display'>
             <div className='img-display_frame'>
-              { orientation === 'portrait' &&
+
+              {!img ?
+               
+               <picture>
+                <img src={placeHolder}/>
+               </picture>
+          
+              : orientation === 'portrait' ?
                 <picture>
                   <img className="img-portrait" src={img}></img>
                 </picture>
-              }
-              { orientation === 'landscape' &&
+              : orientation === 'landscape' ?
                 <picture>
                   <img className="img-landscape" src={img}></img>
                 </picture>
-              }
-              { orientation === 'square' &&
+              : orientation === 'square' &&
                 <picture>
                   <img className="img-square" src={img}></img>
                 </picture>
+
               }
             </div>
           </div>

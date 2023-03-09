@@ -3,6 +3,9 @@ import React, {useState, useEffect} from 'react'
 import ComCardHm from '../Components/Card/ComCardHm'
 import { getAllCommissions } from '../services/commission'
 
+import largeLogo from './../Logo/Commissioner_logo_white_large.png';
+import dots from './../Logo/dots-alpha.gif';
+
 // CSS
 import "./homepage.css"
 
@@ -42,13 +45,29 @@ const Homepage = ({authenticated}) => {
       <div className="homepage-main" data-page>
 
         <div className='homepage-content'>
-          <article className='homepage-hero'>
-            <div className='dummy-photo'>
-              <picture>
-                <img src="https://commissioner-commissions.s3.amazonaws.com/Commissioner_homepage_banner.png"/>
-              </picture>
+          <div className='homepage-hero' style={{
+            backgroundImage: `url("https://commissioner-commissions.s3.amazonaws.com/Commissioner_homepage_banner.png")`,
+            backgroundSize: "cover", 
+          }}>
+            <div className='banner-tagline'>
+              {/* <img src={dots} className="dot-bg"/> */}
+              <div className='dot-bg' 
+                style={{
+                  backgroundImage: `url("${dots}")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+              <div className='tagline-text'>
+                <h1 className='tagtext'>Create</h1>
+                <h1 className='tagtext'>Connect</h1>
+                <h1 className='tagtext'>Commision</h1>
+              </div>
             </div>
-          </article>
+              <div className="banner_logo">
+              <img src={largeLogo}></img>
+             </div>
+          </div>
           <article className='homepage-artdisplay'>
             <h1>Recent Commissions</h1>
             {recentComs && recentComs.map((com, key) => {
